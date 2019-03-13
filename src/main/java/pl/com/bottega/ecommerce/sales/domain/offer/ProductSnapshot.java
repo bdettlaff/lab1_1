@@ -1,5 +1,8 @@
 package pl.com.bottega.ecommerce.sales.domain.offer;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import java.util.Date;
 
 public class ProductSnapshot {
@@ -49,6 +52,31 @@ public class ProductSnapshot {
 
     private int quantity;
 
+    @Override public boolean equals(Object o) {
+        if (this == o)
+            return true;
 
+        if (o == null || getClass() != o.getClass())
+            return false;
 
+        ProductSnapshot that = (ProductSnapshot) o;
+
+        return new EqualsBuilder().append(quantity, that.quantity)
+                                  .append(id, that.id)
+                                  .append(price, that.price)
+                                  .append(name, that.name)
+                                  .append(snapshotDate, that.snapshotDate)
+                                  .append(type, that.type)
+                                  .isEquals();
+    }
+
+    @Override public int hashCode() {
+        return new HashCodeBuilder(17, 37).append(id)
+                                          .append(price)
+                                          .append(name)
+                                          .append(snapshotDate)
+                                          .append(type)
+                                          .append(quantity)
+                                          .toHashCode();
+    }
 }
