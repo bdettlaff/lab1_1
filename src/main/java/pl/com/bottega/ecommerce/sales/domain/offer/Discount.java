@@ -10,6 +10,11 @@ public class Discount {
         return discount;
     }
 
+    public Discount(String discountCause, Money discount) {
+        this.discountCause = discountCause;
+        this.discount = discount;
+    }
+
     private String discountCause;
     private Money discount;
 }
