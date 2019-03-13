@@ -7,6 +7,9 @@ import java.math.BigDecimal;
 
 public class Money {
 
+    private String currency;
+    private BigDecimal price;
+
     public String getCurrency() {
         return currency;
     }
@@ -15,13 +18,9 @@ public class Money {
         return price;
     }
 
-    private String currency;
-
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
-
-    private BigDecimal price;
 
     public Money(String currency, BigDecimal price){
         this.currency = currency;

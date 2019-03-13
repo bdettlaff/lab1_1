@@ -5,6 +5,9 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class Discount {
 
+    private String discountCause;
+    private Money discount;
+
     public String getDiscountCause() {
         return discountCause;
     }
@@ -33,7 +36,4 @@ public class Discount {
     @Override public int hashCode() {
         return new HashCodeBuilder(17, 37).append(discountCause).append(discount).toHashCode();
     }
-
-    private String discountCause;
-    private Money discount;
 }

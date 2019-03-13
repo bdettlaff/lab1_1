@@ -7,6 +7,18 @@ import java.util.Date;
 
 public class ProductSnapshot {
 
+    private String id;
+
+    private Money price;
+
+    private String name;
+
+    private Date snapshotDate;
+
+    private String type;
+
+    private int quantity;
+
     public ProductSnapshot(String id, Money price, String name, Date snapshotDate, String type, int quantity) {
         this.id = id;
         this.price = price;
@@ -39,18 +51,6 @@ public class ProductSnapshot {
     public int getQuantity() {
         return quantity;
     }
-
-    private String id;
-
-    private Money price;
-
-    private String name;
-
-    private Date snapshotDate;
-
-    private String type;
-
-    private int quantity;
 
     @Override public boolean equals(Object o) {
         if (this == o)
