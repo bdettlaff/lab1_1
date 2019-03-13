@@ -49,34 +49,6 @@ public class ProductSnapshot {
 
     private int quantity;
 
-     if (productPrice == null) {
-        if (other.productPrice != null) {
-            return false;
-        }
-    } else if (!productPrice.equals(other.productPrice)) {
-        return false;
-    }
-        if (productName == null) {
-        if (other.productName != null) {
-            return false;
-        }
-    } else if (!productName.equals(other.productName)) {
-        return false;
-    }
 
-        if (productId == null) {
-        if (other.productId != null) {
-            return false;
-        }
-    } else if (!productId.equals(other.productId)) {
-        return false;
-    }
-        if (productType != other.productType) {
-        return false;
-    }
-
-        if (quantity != other.quantity) {
-        return false;
-    }
 
 }

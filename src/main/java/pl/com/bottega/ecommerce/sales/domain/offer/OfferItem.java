@@ -65,16 +65,18 @@ public class OfferItem {
     }
 
     public boolean isSameAs(OfferItem other, double delta) {
-
+        if (productSnapshot.equals(other.productSnapshot)) {
+            return false;
+        }
 
         BigDecimal max;
         BigDecimal min;
-        if (totalCost.compareTo(other.totalCost) > 0) {
-            max = totalCost;
-            min = other.totalCost;
+        if (totalCost.getPrice().compareTo(other.totalCost.getPrice()) > 0) {
+            max = totalCost.getPrice();
+            min = other.totalCost.getPrice();
         } else {
-            max = other.totalCost;
-            min = totalCost;
+            max = other.totalCost.getPrice();
+            min = totalCost.getPrice();
         }
 
         BigDecimal difference = max.subtract(min);
