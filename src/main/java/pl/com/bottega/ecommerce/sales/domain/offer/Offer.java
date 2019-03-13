@@ -35,41 +35,28 @@ public class Offer {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+
+        if ((obj == null) || getClass() != obj.getClass()) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
+
         Offer other = (Offer) obj;
-        if (availableItems == null) {
-            if (other.availableItems != null) {
-                return false;
-            }
-        } else if (!availableItems.equals(other.availableItems)) {
+
+        if (!availableItems.equals(other.availableItems)) {
             return false;
         }
+
         return true;
     }
 
-    /**
-     *
-     * @param seenOffer
-     * @param delta
-     *            acceptable difference in percent
-     * @return
-     */
-    public boolean sameAs(Offer seenOffer, double delta) {
+    public boolean isSameAs(Offer seenOffer, double delta) {
         if (availableItems.size() != seenOffer.availableItems.size()) {
             return false;
         }
 
         for (OfferItem item : availableItems) {
-            OfferItem sameItem = seenOffer.findItem(item.getProductId());
-            if (sameItem == null) {
-                return false;
-            }
-            if (!sameItem.sameAs(item, delta)) {
+            OfferItem sameItem = seenOffer.findItem(item.getProductSnapshot().getId());
+            if (sameItem == null || !sameItem.isSameAs(item, delta)) {
                 return false;
             }
         }
@@ -79,7 +66,7 @@ public class Offer {
 
     private OfferItem findItem(String productId) {
         for (OfferItem item : availableItems) {
-            if (item.getProductId().equals(productId)) {
+            if (item.getProductSnapshot().getId().equals(productId)) {
                 return item;
             }
         }

@@ -21,6 +21,14 @@ public class OfferItem {
         return totalCost;
     }
 
+    public Discount getDiscount() {
+        return discount;
+    }
+
+    public ProductSnapshot getProductSnapshot() {
+        return productSnapshot;
+    }
+
     private Money totalCost;
     private Discount discount;
     private ProductSnapshot productSnapshot;
